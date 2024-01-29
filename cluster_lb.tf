@@ -55,7 +55,7 @@ resource "aws_lb_listener" "cluster" {
 
 //Hostbase Routing
 
-resource "aws_lb_listener_rule" "host_based_weighted_routing" {
+resource "aws_lb_listener_rule" "host_based_routing" {
   listener_arn = aws_lb_listener.cluster[0].arn
   priority     = 99
 
@@ -66,7 +66,7 @@ resource "aws_lb_listener_rule" "host_based_weighted_routing" {
 
   condition {
     host_header {
-      values = ["teleport.devopsmm.online"]
+      values = ["teleport.example.com"]
     }
   }
 }
